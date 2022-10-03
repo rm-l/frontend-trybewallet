@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   expenses: [],
   editor: false,
   idToEdit: 0,
+  total: 0,
 };
 
 function wallet(state = INITIAL_STATE, action) {
@@ -12,10 +13,7 @@ function wallet(state = INITIAL_STATE, action) {
   case SPENDING_ACTION:
     return {
       ...state,
-      currencies: action.spendingInfo,
-      expenses: action.spendingInfo,
-      editor: action.spendingInfo,
-      idToEdit: action.spendingInfo,
+      expenses: [...state.expenses, action.spendingInfo],
     };
   case FETCH_CURRENCIES_SUCCESS:
     return {

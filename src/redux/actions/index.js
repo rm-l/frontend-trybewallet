@@ -40,6 +40,14 @@ function fetchWithThunk() {
   };
 }
 
+function addSpendingFetch(spending) {
+  return async (dispatch) => {
+    const exchangeRates = await getCurrencesFromAPI();
+    delete exchangeRates.USDT;
+    dispatch(spendingAction({ ...spending, exchangeRates }));
+  };
+}
+
 export {
   LOGIN_ACTION,
   SPENDING_ACTION,
@@ -47,4 +55,5 @@ export {
   FETCH_CURRENCIES_SUCCESS,
   FETCH_CURRENCIES_FAIL,
   fetchWithThunk,
+  addSpendingFetch,
 };
