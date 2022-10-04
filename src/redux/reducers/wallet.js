@@ -1,4 +1,4 @@
-import { SPENDING_ACTION, FETCH_CURRENCIES_SUCCESS } from '../actions';
+import { SPENDING_ACTION, FETCH_CURRENCIES_SUCCESS, REMOVE_ITEM } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -19,6 +19,11 @@ function wallet(state = INITIAL_STATE, action) {
     return {
       ...state,
       currencies: Object.keys(action.payload),
+    };
+  case REMOVE_ITEM:
+    return {
+      ...state,
+      expenses: action.item,
     };
   default:
     return state;

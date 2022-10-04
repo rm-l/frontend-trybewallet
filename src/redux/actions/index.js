@@ -5,6 +5,7 @@ const SPENDING_ACTION = 'SPENDING_ACTION';
 const FETCH_CURRENCIES = 'FETCH_CURRENCIES';
 const FETCH_CURRENCIES_SUCCESS = 'FETCH_CURRENCIES_SUCCESS';
 const FETCH_CURRENCIES_FAIL = 'FETCH_CURRENCIES_FAIL';
+const REMOVE_ITEM = 'REMOVE_ITEM';
 
 export const loginAction = (userInfo) => ({
   type: LOGIN_ACTION,
@@ -14,6 +15,11 @@ export const loginAction = (userInfo) => ({
 export const spendingAction = (spendingInfo) => ({
   type: SPENDING_ACTION,
   spendingInfo,
+});
+
+export const removeItem = (item) => ({
+  type: REMOVE_ITEM,
+  item,
 });
 
 const actFetchCurrencies = () => ({ type: FETCH_CURRENCIES });
@@ -51,6 +57,7 @@ function addSpendingFetch(spending) {
 export {
   LOGIN_ACTION,
   SPENDING_ACTION,
+  REMOVE_ITEM,
   FETCH_CURRENCIES,
   FETCH_CURRENCIES_SUCCESS,
   FETCH_CURRENCIES_FAIL,
